@@ -11,7 +11,7 @@
 \maketitle
 \tableofcontents
 
-\section{数项级数}
+\subsection{数项级数}
 
 \subsection{正项级数的收敛判别法}
 正向级数收敛判别法中非平凡的思想只有比较判别法：
@@ -38,6 +38,8 @@
 我们不叙述这个定理的证明（虽然它是初等的），这个定理揭示了如下事实：给定任意发散的级数，我们能够构造出一个发散得更慢的级数。对于收敛的级数，我们可以将上面定理中的部分和 $S_N$ 替换为余项 $r_N$，据此构造出一个收敛得更慢的级数。
 
 Abel-Dini定理告诉我们一个事实:不存在一个完美的，可以用于一切比较判别法的级数。这也是我们现在有如此多收敛性判别法的原因。除此之外，Abel-Dini定理还给出了一些级数收敛性的事实（例如1/(nlnn),我们知道它是1/n及其部分和直接构造出的发散最慢的级数）
+
+还有一些其他的技巧，例如素数的倒数和问题，这些技巧有待补充。
 
 \subsection{一般数项级数的收敛判别法}
 我们有两种方式判别：一是利用正向级数相关的结论：绝对收敛$ \Rightarrow $收敛（这是完备空间的性质），一是利用Abel判则。我们声称，这一部分真正非平凡的思想只有Abel求和公式：
@@ -67,15 +69,21 @@ $$\displaystyle\sum\limits_{n=1}^{N} (a_nb_n) = S_Nb_N - \displaystyle\sum\limit
 Riemann重排定理还有如下的一些推广：有限维空间中，能够证明级数收敛到一个仿射子空间中，无穷维空间中，重排能够收敛到的子集往往没有这么好的结构。
 
 \begin{theorem}
-    [Lévy-Steinitz 定理]:$\mathbb{R}^n$中收敛但不是绝对收敛的级数可以重排使得新的序列收敛到一个仿射子空间的任意元素。
+    [Lévy-Steinitz 定理]$\mathbb{R}^n$中收敛但不是绝对收敛的级数可以重排使得新的序列收敛到一个仿射子空间的任意元素。
 \end{theorem}
+
+\subsubsection{数项级数的计算方法}
+
+\begin{enumerate}
+    \item 裂项：注意一些特别的裂项 $arctan(\frac{1}{n^2+n+1}) =arctan(n+1)-arctan(n)$
+\end{enumerate}
 
 \subsubsection{Cauchy积}
 
 
-\subsubsection{无穷乘积}
+\subsubsection{乘积级数}
 
-\subsection{级数理论}
+\subsection{函数的级数理论}
 
 \subsubsection{函数项级数的判别法}
 \begin{enumerate}
@@ -90,5 +98,14 @@ Riemann重排定理还有如下的一些推广：有限维空间中，能够证�
     一个级数$\displaystyle\sum\limits_{n=1}^{\infty} a_n$收敛（未必绝对收敛），那么幂级数$\displaystyle\sum\limits_{n=1}^{\infty} a_nx^n$在R<1的[-R,R]上是一致收敛的。
 \end{example}
 前面的例子之中，我们知道了幂级数$f(x) \coloneq \displaystyle\sum\limits_{n=1}^{\infty}a_nx^n$在(-1,1]上是处处收敛的，我们希望收敛到的函数$f(x)$是在1处是左连续的,这需要再一次利用Abel求和公式与截断方法，证明留作练习。
+
+\subsubsection{函数项级数的计算方法}
+
+Abel方法:
+\begin{example}
+    求解关于自变量r的幂级数$ S(r) = \displaystyle\sum\limits_{n=1}^{\infty} \frac{sinnx}{n} \cdot r^n$
+
+    解：先在(-1,1)上求导得到 $S'(r) = \displaystyle\sum\limits_{n=1}^{\infty} sinnx \cdot r^{n-1}$,利用复数，我们可以得到$S'(r) = Im(\frac{e^{ix}}{1-re^{ix}}) = \displaystyle \frac{\sin x}{1-2r\cos x+r^{2}}$对$S'(r)$(关于r)积分就可以得到积分结果为$arctan(\frac{r-cosx}{x})$,从而$S(x) = \frac{\pi-x}2$,利用左连续性就可以得到结果。
+\end{example}
 
 \end{document}
